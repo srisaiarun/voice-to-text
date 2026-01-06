@@ -22,7 +22,8 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: redirect('transcription/upload/')),  # Redirect to the upload page
+    # Redirect root URL to the upload view by name for reliability
+    path('', lambda request: redirect('upload_audio')),
     path('transcription/', include('transcription.urls')),
 ]
 
